@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Animal:
 
     def __init__(self, name: str, appetite: int, is_hungry: bool = True) -> None:
@@ -16,8 +19,9 @@ class Animal:
             self.is_hungry = False
             return self.appetite
 
+
 class Cat(Animal):
-    def __init__(self, name: str, is_hungry=True) -> None:
+    def __init__(self, name: str, is_hungry: bool = True) -> None:
         super().__init__(name, appetite=3, is_hungry=is_hungry)
 
     def catch_mouse(self) -> None:
@@ -25,13 +29,14 @@ class Cat(Animal):
 
 
 class Dog(Animal):
-    def __init__(self, name: str, is_hungry=True) -> None:
+    def __init__(self, name: str, is_hungry: bool = True) -> None:
         super().__init__(name, appetite=7, is_hungry=is_hungry)
 
     def bring_slippers(self) -> str:
         print("The slippers delivered!")
 
-def feed_animals(animals) -> int:
+
+def feed_animals(animals: List[Animal]) -> int:
     total_food = 0
     for animal in animals:
         total_food += animal.feed()
